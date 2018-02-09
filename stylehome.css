@@ -86,7 +86,9 @@ div.card{
         display: flex;
         
     }
-
+    .esp{
+        max-height: 100px;
+     }
 
  }
  div.flexinform{
@@ -126,6 +128,9 @@ div.card{
  }
  .card-img-top{
      max-height: 150px;
+ }
+ .esp{
+    max-height: 200px;
  }
  .dropdown-item:active{
      background-color: orange;

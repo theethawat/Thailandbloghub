@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Profile</title>
     <link rel="shortcut icon" href="logo_tbh_bg.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -64,8 +64,53 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 </nav>
+<br>
+<div class="container">
+<div class="row">
+<div class="col-sm">
+<div class="card">
+<?php
+ $conn = mysqli_connect("localhost","root","","thailandbloghub");
+ $sql="SELECT * FROM member WHERE Usrname = '$user' ";
+$memo = mysqli_query($conn,$sql);
+$row = mysqli_fetch_assoc($memo);
+
+if($row["Profilepic"]==NULL)
+{
+    print "<img class='card-img-top esp' src='wall_all.png' alt='Card image cap'>";
+}
+else
+{
+    print "<img class='card-img-top esp' src='Profile/".$row["Profilepic"]."' alt='Card image cap'>";
+}
+?>
+
+<div class="card-body">
+<?php
+    print "<h5 class='kanit'>".$row["Usrname"]."</h5>";
+    print "<h6 class='kanit'>".$row["NameandSur"]."</h6>";
+    if($row["Greeting"]==NULL)
+    {
+        print "<p>คุณยังไม่มีคำแนะนำตัวเลย</p>";
+    }
+    else
+    {
+        print "<p>".$row["Greeting"]."</p>";
+    }
+?>
 
 
 
+</div></div><!-- for card and card body -->
+</div> <!-- for col-sm -->
+
+<div class="col-sm">
+</div> <!-- for col-sm -->
+
+<div class="col-sm">
+</div> <!-- for col-sm -->
+
+</div> <!-- for row div -->
+</div> <!-- for container div -->
 </body>
 </html>

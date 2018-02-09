@@ -53,7 +53,7 @@
       echo   "<a class='nav-link dropdown-toggle usrnameshow' style='color:white;' role='button' id='navbarDropdown'  data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> สวัสดี".$user."</a> 
       
       <div class='dropdown-menu widescreennav'aria-labelledby='navbarDropdown' >
-    <a class='dropdown-item ' href='#'>โปรไฟล์ของคุณ</a>
+    <a class='dropdown-item ' href='profile.php'>โปรไฟล์ของคุณ</a>
     <a class='dropdown-item ' href='#'>แก้ไข/ลบโพสต์</a>
     <div class='dropdown-divider'></div>
     <a class='dropdown-item ' href='#'>ช่วยเหลือ</a>
