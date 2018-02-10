@@ -135,3 +135,7 @@ div.card{
  .dropdown-item:active{
      background-color: orange;
  }
+.moremargin
+{
+    margin-bottom:0.25em;
+}

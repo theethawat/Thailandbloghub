@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile</title>
+    <title>Member Watch</title>
     <link rel="shortcut icon" href="logo_tbh_bg.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -71,8 +71,9 @@
 <div class="col-sm">
 <div class="card">
 <?php
+$auther=$_POST["auther"];
  $conn = mysqli_connect("localhost","root","","thailandbloghub");
- $sql="SELECT * FROM member WHERE Usrname = '$user' ";
+ $sql="SELECT * FROM member WHERE Usrname = '$auther' ";
 $memo = mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($memo);
 
@@ -92,15 +93,14 @@ else
     print "<h6 class='kanit'>".$row["NameandSur"]."</h6>";
     if($row["Greeting"]==NULL)
     {
-        print "<p>คุณยังไม่มีคำแนะนำตัวเลย</p>";
+        print "<p>เขายังไม่มีคำแนะนำตัวเลย</p>";
     }
     else
     {
         print "<p>".$row["Greeting"]."</p>";
     }
 ?>
-<button class="btn btn-secondary kanit moremargin" data-toggle="modal" data-target="#greetingchange"><i class="fas fa-comments"></i> อัพเดทคำทักทาย</button><br>
-<button class="btn btn-secondary kanit moremargin" data-toggle="modal" data-target="#profilepicchange"><i class="fas fa-image"></i> อัพเดทรูปประจำตัว</button>
+
 
 </div></div><!-- for card and card body -->
 </div> <!-- for col-sm -->
@@ -115,57 +115,7 @@ else
 </div> <!-- for container div -->
 
 
-<!-- for modal -->
-<div class="modal fade" id="greetingchange" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">อัพเดทคำทักทาย หรือ คำแนะนำตัว</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>พิมพ์คำแนะนำตัวใหม่ของคุณที่นี่</p>
-        <form action="changegreeting.php" method="post">
-        <textarea class="form-control" rows="3" name="greeting"></textarea><br>
-        <button type="submit" class="btn btn-primary">บันทึกการเปลี่ยนแปลง</button>
-        </form>
-      </div>
-     
-        
-        
-     
-    </div>
-  </div>
-</div>
-<!-- end of Modal Zone -->
 
-<!-- for modal -->
-<div class="modal fade" id="profilepicchange" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">อัพเดทรูปประจำตัว</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>ใส่รูปภาพของคุณที่นี่</p>
-        <form action="changeprofile.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="profilephoto">
-        <button type="submit" class="btn btn-primary">บันทึกการเปลี่ยนแปลง</button>
-        </form>
-      </div>
-     
-        
-        
-     
-    </div>
-  </div>
-</div>
-<!-- end of Modal Zone -->
 
 
 </body>
