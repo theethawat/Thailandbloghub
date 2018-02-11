@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>แก้ไขบทความ</title>
+    <title>นโยบายความเป็นส่วนตัว</title>
     <link rel="shortcut icon" href="logo_tbh_bg.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -23,8 +23,6 @@
   if($_SESSION!=NULL)
   {
     $user=$_SESSION["user"];
-    $catagory=$_POST["catagory"];
-    $id=$_POST["id"];
   }
   
   
@@ -73,74 +71,22 @@
 </nav>
 <br>
 <div class="container">
-<h3 class="kanit"> <i class="fas fa-paper-plane"></i> แก้ไขบทความ</h3>
+<h4 class="kanit">นโยบายความเป็นส่วนตัว</h4>
 <div class="row">
   <div class="col-12 col-md-8">
-<?php
-$conn=mysqli_connect("localhost","root","","thailandbloghub");
-$sql="SELECT * FROM $catagory WHERE ID='$id'";
-$memo=mysqli_query($conn,$sql);
-$row=mysqli_fetch_assoc($memo);
-if ($_SESSION!=NULL)
-{
-    print "<p>กรุณาแก้ไขและบันทึกเป็นอย่างๆ ไป</p>
-    <form  action='edittopic.php' method='post' >
-    <div class='form-group'>
-    <label for='exampleInputEmail1'>ชื่อบทความ</label>
-    <input type='text' class='form-control' name='topic' value='".$row["Topic"]."' placeholder='ใส่ชื่อบทความ' >
+  <p>
+      ไทยแลนด์บล็อกฮับจัดทำขึ้นเพื่อเป็นศูนย์รวมของเว็บไซต์ประเภทบล็อก หรือ บทความอื่นๆของบล็อกเกอร์ และ ผู้เขียนเว็บไซต์ในประเทศไทย โดยจัดทำขึ้นส่วนตัวไม่ได้ขึ้นกับองค์กรใดทั้งสิ้น
+      เว็บไซต์ของเราจัดขึ้นมาเพื่อที่จะให้ทุกท่านได้แชร์ลิงค์เว็บไซต์ของท่าน ไทยแลนด์บล็อกฮับไม่ใช่ผู้ให้บริการบล็อกแต่อย่างใด 
+  </p>
 
-    <input type='text' name='catagory' value='".$catagory."' hidden>
-    <input type='text' name='id' value='".$id."' hidden>
-    <button type='submit' class='btn btn-primary'>แก้ไขชื่อบทความ</button>
-    </div>
-     </form>
-     
-<br>
-
-<form  action='editsitename.php' method='post' >
-  <div class='indiv'>
-  <label for='exampleInputEmail1'>ชื่อเว็บไซต์/บล็อก</label>
-  <input type='text' class='form-control' name='blogtitle' value='".$row["Sitename"]."' placeholder='ใส่ชื่อเว็บไซต์หรือชื่อบล็อก' >
-  <input type='text' name='catagory' value='".$catagory."' hidden>
-  <input type='text' name='id' value='".$id."' hidden>
-  <button type='submit' class='btn btn-primary'>แก้ไขชื่อบล็อก</button>
-  </div>
-</form>
-<br>
-
-<form  action='editlink.php' method='post' >
-  <label for='exampleInputEmail1'>URL ของบทความนี้ (โปรดใส่ http:// หรือ https://)</label>
-<input class='form-control' type='url' name='link'  value='".$row["link"]."'>
-<input type='text' name='catagory' value='".$catagory."' hidden>
-  <input type='text' name='id' value='".$id."' hidden>
-  <button type='submit' class='btn btn-primary'>แก้ไขลิงค์</button>
-</form><br>
-
-<form  action='editinfo.php' method='post' >
-  <label for='exampleInputEmail1'>บรรยายคร่าวๆเกี่ยวกับบทความ ไม่เกิน 150 ตัวอักษร </label>
-    <textarea class='form-control' name='describe'  rows='3' maxlength='150'>".$row["Infoadd"]."</textarea>
-    <input type='text' name='catagory' value='".$catagory."' hidden>
-  <input type='text' name='id' value='".$id."' hidden>
-  <button type='submit' class='btn btn-primary'>แก้ไขข้อความ</button>
-</form>
-<br>
-
-<form  action='editissuephoto.php' method='post' enctype='multipart/form-data'>
-  <label for='exampleInputEmail1'>ใส่รูปภาพ (ใส่หรือไม่ใส่ก็ได้)</label>
-    <input type='file' name='photo' id='photo'>
-    <input type='text' name='catagory' value='".$catagory."' hidden>
-  <input type='text' name='id' value='".$id."' hidden>
-  <button type='submit' class='btn btn-primary'>เปลี่ยนรูปภาพ</button>
-    </form><br>
-<br>
-    ";
-}
-if ($_SESSION==NULL)
-{
-    echo "Please Login";
-}
-?>
-  
+    <h5 class="kanit">นโยบายความเป็นส่วนตัว</h5>
+  <p>
+     ในการสมัครสมาชิกเว็บไซต์จะรับข้อมูลเฉพาะชื่อ-สกุล Username และ Email ของท่าน โดยท่านมีสิทธิที่จะไม่เปิดเผยชื่อ นามสกุลจริงของท่าน แล้วแทนด้วยนามปากกาหรือชื่ออื่นๆ
+     โดยทางเราจะทราบข้อมูลที่ท่านให้มา และ ทราบรหัสผ่านของท่าน โดยทางเราจะไม่นำข้อมูลของท่านไปใช้ในทางอื่นๆ นอกจากการที่จะใช้ยืนยันตัวในการเข้าสู่ระบบ และใช้อีเมลของท่าน
+     ในการเตือนท่านเมื่อท่านทำผิดกฎของเราเท่านั้น<br><br>
+     การอนุญาติให้เราโปรโมทโพสต์ของท่านภายนอก หลังจากการที่ท่านใส่มาในการเพิ่มบทความใหม่นั้น หมายถึง อนุญาติให้เราแชร์บทความของท่านในเพจไทยแลนด์บล็อกฮับ
+     หรือช่องท่านอื่นๆ ในนาม Thailand Blog Hub ในอนาคต ไม่ว่าจะเป็นการแชร์ธรรมดา หรือ การโปรโมทโพสต์ก็ตาม โดยท่านมีสิทธิที่จะอนุญาติหรือไม่ก็ได้
+    </p>
   </div> <!-- div for col-12 col-md-8 -->
 
   <div class="col-6 col-md-4">      <div id="fb-root"></div> <script>(function(d, s, id) {   var js, fjs = d.getElementsByTagName(s)[0];   if (d.getElementById(id)) return;   js = d.createElement(s); js.id = id;   js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.12&appId=389712018153235&autoLogAppEvents=1';   fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script><div class="fb-page" data-href="https://www.facebook.com/thailandbloghub/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/thailandbloghub/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/thailandbloghub/">Thailand Blog Hub</a></blockquote></div>

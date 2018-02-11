@@ -148,3 +148,16 @@ img.indexissue{
     height:50px;
     margin-right:1em;
 }
+img.footerlogo{
+    width:60px;
+    height:50px;
+    margin-right: 1em;
+}
+div.footercontent{
+    margin:1em;
+}
+
+a.listfooter{
+    color:white;
+    font-family: 'kanit',sans-serif;
+}

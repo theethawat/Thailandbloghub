@@ -53,7 +53,7 @@
     <a class='dropdown-item ' href='profile.php'>โปรไฟล์ของคุณ</a>
   
     <div class='dropdown-divider'></div>
-    <a class='dropdown-item ' href='#'>ช่วยเหลือ</a>
+  
     <a class='dropdown-item ' href='setting.php'>การตั้งค่า</a>
     <a class='dropdown-item ' href='logout.php'>ลงชื่อออก</a>
   </div>";
@@ -210,5 +210,5 @@ for($i=0;$i<10;$i++)
 <!-- end of Modal Zone -->
 
 
-</body>
+<br><br><br><br><br><br> <div class="footer  navbar-dark bg-dark ">   <div class="container">   <div class="row">     <div class="col">       <div class="footercontent">     <div class="flexdiv">       <img src="logo_tbh_bg.png" class="footerlogo">       <div style="color:white;">     <h6 class="kanit">ไทยแลนด์บล็อกฮับ</h6>     <p>Copyright 2018 Thailand Blog Hub</p>     <a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a>     <a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a>      </div>      </div><!--for flex div -->      </div>     </div><!--for col div-->     <div class="col" >       </div><!--for col div-->          </div><!--for row div-->      </div> <!--for container --> </div><!-- for nav bottom --> </body></html>
 </html>

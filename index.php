@@ -53,7 +53,7 @@
     <a class='dropdown-item ' href='profile.php'>โปรไฟล์ของคุณ</a>
   
     <div class='dropdown-divider'></div>
-    <a class='dropdown-item ' href='#'>ช่วยเหลือ</a>
+  
     <a class='dropdown-item ' href='setting.php'>การตั้งค่า</a>
     <a class='dropdown-item ' href='logout.php'>ลงชื่อออก</a>
   </div>";
@@ -67,6 +67,36 @@
 </nav>
 <br>
 <div class="container">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="banner1.png" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="banner2.png" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="banner3.png" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<br><br>
+
+
+
 <div class="row">
 <div class="col">
 <div class="card"><div class="card-body">
@@ -197,9 +227,11 @@ else{
       {
         print "กรุณาลงชื่อเข้าใช้เพื่อใช้งานส่วนนี้";
       }
-      else
+      if($_SESSION!=NULL)
       {
-        while($row5=mysqli_fetch_assoc($memo4))
+        $sql="SELECT * FROM $followtablename ";
+        $memo6=mysqli_query($conn,$sql);
+        while($row5=mysqli_fetch_assoc($memo6))
         {
           $auther=$row5["followingname"];
           for($l=0;$l<10;$l++)
@@ -220,7 +252,7 @@ else{
               {
                 print "<img class='indexissue' src='".$thisurl2."/".$row6["photo"]."'>";
               }
-             print "<div><a href='".$row6["link"]."'><h6 class='kanit'>".$row6["Topic"]."</a> ใน <a href='".$thisurl2.".php'>  ".$thisurl2."</a> <i class='fas fa-heart'></i> ".$row6["likeno"]."</h6>";
+             print "<div><a href='".$row6["link"]."'><h6 class='kanit'>".$row6["Topic"]."</a> โดย ".$auther."ใน <a href='".$thisurl2.".php'>  ".$thisurl2."</a> <i class='fas fa-heart'></i> ".$row6["likeno"]."</h6>";
             print "<p>".$row["Infoadd"]."</p>"; 
             print "</div></div>";
             print "<hr>";
@@ -241,10 +273,29 @@ else{
 
 </div> <!--for container div -->
 <div class="addbutton fixed-bottom">  <a href="addnew.php"><button class="btn btn-danger pencil"><i class="fas fa-plus"></i></button></a> </div> 
-<div class="footer fixed-bottom  navbar-dark bg-dark ">
+<br><br>
+<div class="footer  navbar-dark bg-dark ">
+  <div class="container">
   <div class="row">
-    <div class="col"></div><!--for col div-->
+    <div class="col">
+      <div class="footercontent">
+    <div class="flexdiv">
+      <img src="logo_tbh_bg.png" class="footerlogo">
+      <div style="color:white;">
+    <h6 class="kanit">ไทยแลนด์บล็อกฮับ</h6>
+    <p>Copyright 2018 Thailand Blog Hub</p>
+    <a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a>
+    <a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a>
+     </div>
+     </div><!--for flex div -->
+     </div>
+    </div><!--for col div-->
+    <div class="col" >
+ 
+    </div><!--for col div-->
+   
      </div><!--for row div-->
+     </div> <!--for container -->
 </div><!-- for nav bottom -->
 </body>
 </html>
