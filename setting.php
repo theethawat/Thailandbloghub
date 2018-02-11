@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile</title>
+    <title>Setting</title>
     <link rel="shortcut icon" href="logo_tbh_bg.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -107,44 +107,27 @@ else
 
 <div class="col">
 <div class="card"><div class="card-body">
-<h4 class="kanit">Your Entry</h4>
-<?php
-$conn=mysqli_connect("localhost","root","","thailandbloghub");
-$tablename=array("00science","00it","00health","00travel","00business","00education","00entertainment","00homegarden","00reaction","00reporter");
-$urlname=array("science","it","health","travel","business","education","entertainment","homegarden","reaction","reporter");
-for($i=0;$i<10;$i++)
-{
-  $thistablename=$tablename[$i];
-  $catagory=$urlname[$i];
-  $sql="SELECT * FROM $thistablename WHERE Usrname='$user'";
-  $memo=mysqli_query($conn,$sql);
-  while($row=mysqli_fetch_assoc($memo))
-  {
-    $thisid=$row["ID"];
-    print "<h6 class='kanit'>".$row["Topic"]." ใน ".$catagory." <i class='fas fa-heart'></i> ".$row["likeno"]."</h6>";
-    print "<p>".$row["Infoadd"]."</p>"; 
-    print "<div class='flexdiv'>";
-    print "<form action='deletepost.php' method='post'> 
-            <input type='text' value='".$thistablename."' name='catagory' hidden>
-            <button class='btn btn-light' type='submit' name='id' value ='".$thisid."'><i class='fas fa-minus-circle'></i> ลบโพส </button> 
-            </form>";
-   print "<form action='editpost.php' method='post'> 
-            <input type='text' value='".$thistablename."' name='catagory' hidden>
-            <button class='btn btn-light' type='submit' name='id' value ='".$thisid."'><i class='fas fa-edit'></i> แก้ไขโพสต์ </button> 
-            </form>";
-    print "</div>";
-    print "<hr>";
-
-  }
-}
-
-
-?>
-
-
-
-
-
+<h4 class="kanit">การตั้งค่า</h4>
+<h5 class="kanit">ตั้งค่าชื่อ</h5>
+<p>เปลี่ยนชื่อนามสกุล หรือ นามปากกา ที่ใช้ Display ในหน้าโปรไฟล์</p>
+<form action="changename.php" method="post">
+    <input type="text" class="form-control" name="nameandsur" ><br>
+    <button type="submit" class="btn btn-primary kanit">เปลี่ยนชื่อ </button>
+</form>
+<hr>
+<h5 class="kanit">ตั้งค่ารหัสผ่าน</h5>
+<p>เปลี่ยนรหัสผ่านที่ใช้ในการเข้าสู่ระบบ โปรดตรวจสอบภาษาในขณะตั้งรหัสผ่านให้ดี</p>
+<form action="changepassword.php" method="post">
+    <label>ใส่รหัสผ่านเดิมของคุณ</label>
+    <input type="password" class="form-control" name="oldpass" >
+    <label>ใส่รหัสผ่านใหม่ของคุณ</label>
+    <input type="password" class="form-control" name="newpass" >
+    <br>
+    <button type="submit" class="btn btn-primary kanit">เปลี่ยนรหัสผ่าน </button>
+</form>
+<hr>
+<h5 class="kanit">ตั้งค่า Username </h5>
+<p>เขออภัยครับ ทาง ThailandBlogHub ระบบในตอนนี้ยังไม่รองรับการเปลี่ยน Username ครับ</p>
 </div></div> <!-- for card and card body div -->
 </div> <!-- for col-sm -->
 

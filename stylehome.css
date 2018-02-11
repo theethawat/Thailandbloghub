@@ -139,3 +139,7 @@ div.card{
 {
     margin-bottom:0.25em;
 }
+div.flexdiv{
+    display: flex;
+   
+}

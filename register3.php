@@ -9,8 +9,17 @@ $sql="INSERT INTO member (Usrname,NameandSur,Email,Password) VALUES('$username',
 if ($conn->query($sql) === TRUE) {
     $usertablename=$username."_like";
     $sql="CREATE TABLE $usertablename (ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,id_of_like TEXT NOT NULL)";
-    if ($conn->query($sql) === TRUE) {
-        echo "<meta http-equiv='refresh' content='0; url=login.php' >";
+    if ($conn->query($sql) === TRUE) 
+    {
+        $usertablename2=$username."_following";
+        $sql="CREATE TABLE $usertablename2 (ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,followingname TEXT NOT NULL)";
+            if ($conn->query($sql) === TRUE) {
+                echo "<meta http-equiv='refresh' content='0; url=login.php' >";
+                }
+            else
+                {
+                echo "Error creating table: " . $conn->error;
+                }
     } else {
         echo "Error creating table: " . $conn->error;
     }

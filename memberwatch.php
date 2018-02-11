@@ -51,10 +51,10 @@
       
       <div class='dropdown-menu widescreennav'aria-labelledby='navbarDropdown' >
     <a class='dropdown-item ' href='profile.php'>โปรไฟล์ของคุณ</a>
-    <a class='dropdown-item ' href='#'>แก้ไข/ลบโพสต์</a>
+  
     <div class='dropdown-divider'></div>
     <a class='dropdown-item ' href='#'>ช่วยเหลือ</a>
-    <a class='dropdown-item ' href='#'>การตั้งค่า</a>
+    <a class='dropdown-item ' href='setting.php'>การตั้งค่า</a>
     <a class='dropdown-item ' href='logout.php'>ลงชื่อออก</a>
   </div>";
   echo "</span>";
@@ -68,7 +68,7 @@
 <br>
 <div class="container">
 <div class="row">
-<div class="col-sm">
+<div class="col-sm-4">
 <div class="card">
 <?php
 $auther=$_POST["auther"];
@@ -99,17 +99,61 @@ else
     {
         print "<p>".$row["Greeting"]."</p>";
     }
+$followingtable=$user."_following";
+$sql="SELECT * FROM $followingtable WHERE followingname='$auther' ";
+$memo=mysqli_query($conn,$sql);
+$row=mysqli_fetch_assoc($memo);
+if($row!=NULL)
+{
+ print "<button class='btn btn-light kanit'> <i class='fas fa-check'></i> Followed </button> ";
+}
+if($row==NULL)
+{
+  print "<form action='addfollow.php' method='post'>
+  <button type='submit' class='btn btn-light kanit' name='follow' value='".$auther."'><i class='fas fa-plus'></i> Follow </button>
+  </form>";
+}
 ?>
 
 
 </div></div><!-- for card and card body -->
 </div> <!-- for col-sm -->
 
-<div class="col-sm">
-</div> <!-- for col-sm -->
+<div class="col">
+<div class="card"><div class="card-body">
+<h4 class="kanit">Entry</h4>
+<?php
+$conn=mysqli_connect("localhost","root","","thailandbloghub");
+$tablename=array("00science","00it","00health","00travel","00business","00education","00entertainment","00homegarden","00reaction","00reporter");
+$urlname=array("science","it","health","travel","business","education","entertainment","homegarden","reaction","reporter");
+for($i=0;$i<10;$i++)
+{
+  $thistablename=$tablename[$i];
+  $catagory=$urlname[$i];
+  $sql="SELECT * FROM $thistablename WHERE Usrname='$auther'";
+  $memo=mysqli_query($conn,$sql);
+  while($row=mysqli_fetch_assoc($memo))
+  {
+    $thisid=$row["ID"];
+    print "<h6 class='kanit'>".$row["Topic"]." ใน ".$catagory." <i class='fas fa-heart'></i> ".$row["likeno"]."</h6>";
+    print "<p>".$row["Infoadd"]."</p>"; 
+    print "<hr>";
 
-<div class="col-sm">
-</div> <!-- for col-sm -->
+  }
+}
+
+
+?>
+
+
+
+
+
+</div></div> <!-- for card and card body div -->
+
+</div> <!-- for col -->
+
+
 
 </div> <!-- for row div -->
 </div> <!-- for container div -->

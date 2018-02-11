@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reaction and Review</title>
+    <title>แก้ไขบทความ</title>
     <link rel="shortcut icon" href="logo_tbh_bg.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -20,6 +20,12 @@
   <a class="navbar-brand" href="index.php">ThailandBlogHub</a>
   <?php
   session_start();
+  if($_SESSION!=NULL)
+  {
+    $user=$_SESSION["user"];
+    $catagory=$_POST["catagory"];
+    $id=$_POST["id"];
+  }
   
   
   ?>
@@ -33,12 +39,12 @@
       <a class="nav-item nav-link" href="education.php">Education</a>
       <a class="nav-item nav-link" href="entertainment.php">Entertainment</a>
       <a class="nav-item nav-link" href="homegarden.php">Home/Garden</a>
-      <a class="nav-item nav-link active" href="reaction.php">Reaction/Review</a>
+      <a class="nav-item nav-link" href="reaction.php">Reaction/Review</a>
       <a class="nav-item nav-link" href="reporter.php">Reporter</a>
     </ul>
     
   </div>
-   <?php 
+  <?php 
   if ($_SESSION==NULL)
   {
     echo "<a class='nav-item nav-link white' href='login.php'>เข้าสู่ระบบ</a>";
@@ -67,104 +73,77 @@
 </nav>
 <br>
 <div class="container">
-<h3 class="kanit">Reaction and Review</h3>
+<h3 class="kanit"> <i class="fas fa-paper-plane"></i> แก้ไขบทความ</h3>
 <div class="row">
-  <div class="col">
-  <!-- PHP Code zone -->
-  <?php
-    if($_SESSION!=NULL)   {       $usertablename=$user."_Like";   }
-  
-  $conn=mysqli_connect("localhost","root","","thailandbloghub");
-  $sql="SELECT * FROM 00reaction ORDER BY ID DESC ";
-  $memo=mysqli_query($conn,$sql);
-  $numrow=mysqli_num_rows($memo);
-  //echo $numrow;
-  $numrowbyten=($numrow/10)+1;
-  //echo $numrowbyten;
-  $ini=0;
-  $fin=10;
-  $idofset=1;
-  while($numrowbyten>=1)
-  {
-      print "<div id=$idofset  class='allcard'>";
-      for($i=$ini;$i<$fin;$i++)
-      {
-         $row = mysqli_fetch_assoc($memo);
-         if($row!=NULL)
-         {
-             //Making Card and Operate it to show
-            print "<div class='card maincard'><div class='card-body' >";
-            print "<div class='blogcontent'>";
-            if($row["photo"]==NULL)
-            {
-                //specific part
-                print "<div class='photodiv'>";
-                print "<img class='card-img-top' src='wall_all.png'>";
-                print "</div>";
-            }
-            else
-            {
-                //regular part
-                print "<div class='photodiv'>";
-                print "<img class='card-img-top' src='reaction/".$row["photo"]."'>";
-                print "</div>";
-            }
-            print "<div class='bloginfo'>";
-            $authername=$row["Usrname"];
-            print "<form class='kanit' action='memberwatch.php' method='post'><button type='submit' name='auther' value='$authername'class='btn btn-light aubut'><i class='fas fa-user'></i> ".$authername."</button> / ".$row["Sitename"]."</form>";
-                    print "<h4 class='kanit'>".$row["Topic"]."</h4>";
-            print "<p>".$row["Infoadd"]."</p>";
-            print "<div class='buttonunder kanit'>";
-             $like=$row["likeno"];
-            $idoflist=$row["ID"];
-            print "<a href='".$row["link"]."'><button class='btn btn-info'><i class='fas fa-paper-plane'></i> ดูบล็อก</button></a>";
-            //if control coming soon
-            if($_SESSION!=NULL)
-            {
-            $idwithprefix="RA".$row["ID"];
-            $sql="SELECT * FROM $usertablename WHERE id_of_like = '$idwithprefix'";
-            $recievedata=mysqli_query($conn,$sql);
-            $recievedatarow = mysqli_fetch_assoc($recievedata);
-           
-            if($recievedatarow==NULL)
-            {   
-                print "<form style='text-align:center;'action='like.php' method='post'><input hidden name='catagory'value='00reaction'><button type='submit' class='btn btn-warning' name='idoflike' value='$idoflist'><i class='fas fa-heart'></i> Like ".$like."</button></form>";
-            }
-            if($recievedatarow!=NULL)
-            {
-                print "<button type='submit' class='btn btn-warning '><i class='fas fa-check'></i> Like ".$like."</button>";
-            }
+  <div class="col-12 col-md-8">
+<?php
+$conn=mysqli_connect("localhost","root","","thailandbloghub");
+$sql="SELECT * FROM $catagory WHERE ID='$id'";
+$memo=mysqli_query($conn,$sql);
+$row=mysqli_fetch_assoc($memo);
+if ($_SESSION!=NULL)
+{
+    print "<p>กรุณาแก้ไขและบันทึกเป็นอย่างๆ ไป</p>
+    <form  action='edittopic.php' method='post' >
+    <div class='form-group'>
+    <label for='exampleInputEmail1'>ชื่อบทความ</label>
+    <input type='text' class='form-control' name='topic' value='".$row["Topic"]."' placeholder='ใส่ชื่อบทความ' >
 
-            }
-            if($_SESSION==NULL)
-            {
-                print "<button type='submit' class='btn btn-warning '><i class='fas fa-heart'></i> Like ".$like."</button>";
-            }
-            
-            print "</div>";
-            print "</div>";
-            print "</div>";
-            print "</div>";
-            print "</div>";
-         }
-      }
-      print"</div>";
-      $ini=$ini+10;
-      $fin=$fin+10;
-      $numrowbyten=$numrowbyten-1;
-      $idofset=$idofset+1;
-  }
-    
-    
-  ?>
+    <input type='text' name='catagory' value='".$catagory."' hidden>
+    <input type='text' name='id' value='".$id."' hidden>
+    <button type='submit' class='btn btn-primary'>แก้ไขชื่อบทความ</button>
+    </div>
+     </form>
+     
+<br>
+
+<form  action='editsitename.php' method='post' >
+  <div class='indiv'>
+  <label for='exampleInputEmail1'>ชื่อเว็บไซต์/บล็อก</label>
+  <input type='text' class='form-control' name='blogtitle' value='".$row["Sitename"]."' placeholder='ใส่ชื่อเว็บไซต์หรือชื่อบล็อก' >
+  <input type='text' name='catagory' value='".$catagory."' hidden>
+  <input type='text' name='id' value='".$id."' hidden>
+  <button type='submit' class='btn btn-primary'>แก้ไขชื่อบล็อก</button>
+  </div>
+</form>
+<br>
+
+<form  action='editlink.php' method='post' >
+  <label for='exampleInputEmail1'>URL ของบทความนี้ (โปรดใส่ http:// หรือ https://)</label>
+<input class='form-control' type='url' name='link'  value='".$row["link"]."'>
+<input type='text' name='catagory' value='".$catagory."' hidden>
+  <input type='text' name='id' value='".$id."' hidden>
+  <button type='submit' class='btn btn-primary'>แก้ไขลิงค์</button>
+</form><br>
+
+<form  action='editinfo.php' method='post' >
+  <label for='exampleInputEmail1'>บรรยายคร่าวๆเกี่ยวกับบทความ ไม่เกิน 150 ตัวอักษร </label>
+    <textarea class='form-control' name='describe'  rows='3' maxlength='150'>".$row["Infoadd"]."</textarea>
+    <input type='text' name='catagory' value='".$catagory."' hidden>
+  <input type='text' name='id' value='".$id."' hidden>
+  <button type='submit' class='btn btn-primary'>แก้ไขข้อความ</button>
+</form>
+<br>
+
+<form  action='editissuephoto.php' method='post' enctype='multipart/form-data'>
+  <label for='exampleInputEmail1'>ใส่รูปภาพ (ใส่หรือไม่ใส่ก็ได้)</label>
+    <input type='file' name='photo' id='photo'>
+    <input type='text' name='catagory' value='".$catagory."' hidden>
+  <input type='text' name='id' value='".$id."' hidden>
+  <button type='submit' class='btn btn-primary'>เปลี่ยนรูปภาพ</button>
+    </form><br>
+<br>
+    ";
+}
+if ($_SESSION==NULL)
+{
+    echo "Please Login";
+}
+?>
   
-  
-  
-  
-  </div><!-- div for col-12 col-md-8 --><!--
+  </div> <!-- div for col-12 col-md-8 -->
 
   <div class="col-6 col-md-4">      <div id="fb-root"></div> <script>(function(d, s, id) {   var js, fjs = d.getElementsByTagName(s)[0];   if (d.getElementById(id)) return;   js = d.createElement(s); js.id = id;   js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.12&appId=389712018153235&autoLogAppEvents=1';   fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script><div class="fb-page" data-href="https://www.facebook.com/thailandbloghub/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/thailandbloghub/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/thailandbloghub/">Thailand Blog Hub</a></blockquote></div>
-   </div> --> <!-- for col-6 col-md-4 -->     </div> <!-- for container --> </div> <!-- div for row -->
-<div class="addbutton fixed-bottom">  <a href="addnew.php"><button class="btn btn-danger pencil"><i class="fas fa-plus"></i></button></a> </div> </div> <!-- for container div -->
+   </div>  <!-- for col-6 col-md-4 -->     </div> <!-- for container --> </div> <!-- div for row -->
+</div> <!-- for container div -->
 </body>
-</html>
