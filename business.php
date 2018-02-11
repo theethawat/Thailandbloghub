@@ -71,7 +71,8 @@
   <div class="col">
   <!-- PHP Code zone -->
   <?php
-    if($_SESSION!=NULL)   {       $usertablename=$user."_Like";   }
+    if($_SESSION!=NULL)   {      
+         $usertablename=$user."_Like";   }
   
   $conn=mysqli_connect("localhost","root","","thailandbloghub");
   $sql="SELECT * FROM 00business ORDER BY ID DESC ";

@@ -99,6 +99,12 @@ else
     {
         print "<p>".$row["Greeting"]."</p>";
     }
+if($_SESSION==NULL)
+{
+ print "Please Loging in To Follow";
+}
+if($_SESSION!=NULL)
+{
 $followingtable=$user."_following";
 $sql="SELECT * FROM $followingtable WHERE followingname='$auther' ";
 $memo=mysqli_query($conn,$sql);
@@ -107,12 +113,15 @@ if($row!=NULL)
 {
  print "<button class='btn btn-light kanit'> <i class='fas fa-check'></i> Followed </button> ";
 }
+
 if($row==NULL)
 {
   print "<form action='addfollow.php' method='post'>
   <button type='submit' class='btn btn-light kanit' name='follow' value='".$auther."'><i class='fas fa-plus'></i> Follow </button>
   </form>";
 }
+}
+
 ?>
 
 
@@ -135,7 +144,7 @@ for($i=0;$i<10;$i++)
   while($row=mysqli_fetch_assoc($memo))
   {
     $thisid=$row["ID"];
-    print "<h6 class='kanit'>".$row["Topic"]." ใน ".$catagory." <i class='fas fa-heart'></i> ".$row["likeno"]."</h6>";
+    print "<a href='".$row["link"]."'><h6 class='kanit'>".$row["Topic"]."</a> ใน ".$catagory." <i class='fas fa-heart'></i> ".$row["likeno"]."</h6>";
     print "<p>".$row["Infoadd"]."</p>"; 
     print "<hr>";
 
