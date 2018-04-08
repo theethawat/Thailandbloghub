@@ -6,7 +6,7 @@
  $describe=$_POST["describe"];
 
 
- $conn=mysqli_connect("localhost","root","","thailandbloghub");
+ $conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
  $sql="UPDATE $catagory SET Infoadd='$describe' WHERE id='$id' ";
  
  if ($conn->query($sql) === TRUE) {

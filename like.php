@@ -3,7 +3,7 @@ session_start();
 $user=$_SESSION["user"];
 $likeid=$_POST["idoflike"];
 $catagory=$_POST["catagory"];
-$conn=mysqli_connect("localhost","root","","thailandbloghub");
+$conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
 
 
 $sql="SELECT * FROM $catagory WHERE ID='$likeid' ";
@@ -27,7 +27,7 @@ for($i=0;$i<10;$i++)
 $sql="UPDATE $catagory SET likeno = '$newlike' WHERE ID=$likeid ";
 // It should be change
 
-  if($_SESSION!=NULL)   {       $usertablename=$user."_Like";   }
+  if($_SESSION!=NULL)   {       $usertablename=$user."_like";   }
 
 if (mysqli_query($conn, $sql)) {
     $sql="INSERT INTO $usertablename (id_of_like) VALUES ('$blogid')";

@@ -9,7 +9,7 @@ $link=$_POST["link"];
 $describe=$_POST["describe"];
 $permiss=$_POST["permission"];
 
-$conn=mysqli_connect("localhost","root","","thailandbloghub");
+$conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
 $tablename=array("00science","00it","00health","00travel","00business","00education","00entertainment","00homegarden","00reaction","00reporter");
 $foldername=array("science","it","health","travel","business","education","entertainment","homegarden","reaction","reporter");
 for($i=0;$i<10;$i++)

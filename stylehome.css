@@ -1,9 +1,9 @@
 .kanit{
-    font-family: 'kanit',sans-serif;
+   font-family: 'kanit',sans-serif; 
 }
 .navgreen{
-    /*background-color: Mediumturquoise; */
-    background-color: orange;
+    background-color: darkviolet; 
+    /*background-color: orange;*/
 }
 .litsize{
     font-size: 16px;
@@ -43,7 +43,7 @@ div.card{
         text-align: center;
     }
     .usrnameshow{
-        margin-right: 3em;
+      margin-right:3em;
     }
     .dropdown-item {
         padding-right:1em;
@@ -53,9 +53,7 @@ div.card{
     }
 
 @media (max-width: 575.98px) { 
-   .kanit{
-       font-size: 16px;
-   }
+
     div.photodiv{
         width:100%;
     }
@@ -76,12 +74,7 @@ div.card{
     {
         font-size: 14px;
     }
-    div.blogcontent{
-        display: flex;
-    }
-    div.blogcontent{
-        display: flex;
-    }
+ 
     div.buttonunder{
         display: flex;
         
@@ -133,7 +126,7 @@ div.card{
     max-height: 200px;
  }
  .dropdown-item:active{
-     background-color: orange;
+     background-color: darkviolet;
  }
 .moremargin
 {
@@ -159,5 +152,16 @@ div.footercontent{
 
 a.listfooter{
     color:white;
-    font-family: 'kanit',sans-serif;
+    font-family: 'kanit',sans-serif; 
+}
+div.flex2{
+    display:flex;
+    flex-wrap: wrap;
+}
+.front{
+    width:300px;
+    margin-right:1em;
+}
+div.searchform{
+    margin:1em;
 }

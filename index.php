@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Thailand Blog Hub แหล่งรวมบล็อกของคนไทย</title>
     <link rel="shortcut icon" href="logo_tbh_bg.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -13,11 +13,22 @@
 <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> 
 <link rel="stylesheet" href="stylehome.css" type="text/css" >
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104473772-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104473772-2');
+</script>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark  navgreen blue kanit">
+<span>
 <img src="logo_tbh.png" width="30" height="30" alt="">
-  <a class="navbar-brand" href="index.php">ThailandBlogHub</a>
+  <a class="navbar-brand" href="index.php">ThailandBlogHub</a></span>
   <?php
   session_start();
   
@@ -75,13 +86,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="banner1.png" alt="First slide">
+      <img class="d-block w-100" src="banner1.png" alt="ไทยแลนด์บล็อกฮับ พร้อมแล้วที่จะเปิดให้เหล่าบล็อกเกอร์ไทยได้แชร์ความสามารถของตนเอง โดยนำบล็อกของท่านมาแชร์ที่นี่">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="banner2.png" alt="Second slide">
+      <img class="d-block w-100" src="banner2.png" alt="บล็อกฮับ Blog Hub แหล่งรวมคอนเทนต์ดีๆ จากนักสร้างคอนเทนต์บนโลกอินเตอร์เน็ต เปิดให้ลองใช้ได้แล้วตั้งแต่ 12 กุมภาพันธ์นี้เป็นต้นไป">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="banner3.png" alt="Third slide">
+      <img class="d-block w-100" src="banner3.png" alt="มาร่วมการสร้างไทยแลนด์บล็อกฮับ You Show We Share สู่แหล่งรวมของบรรดาบล็อกเกอร์ทั่วฟ้าแดนไทย ">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -99,12 +110,14 @@
 
 <div class="row">
 <div class="col">
-<div class="card"><div class="card-body">
+
 <h4 class="kanit">On Trending</h4>
+<p>กดถูกใจให้กับบทความที่คุณชอบในหน้า Catagory เพื่อให้บทความที่มียอดไลค์สูงสุดในแต่ละหมวดมาขึ้นที่ On Trending </p>
 <?php
-$conn=mysqli_connect("localhost","root","","thailandbloghub");
+$conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
 $tablename=array("00science","00it","00health","00travel","00business","00education","00entertainment","00homegarden","00reaction","00reporter");
 $urlname=array("science","it","health","travel","business","education","entertainment","homegarden","reaction","reporter");
+print "<div class='flex2'>";
 for($i=0;$i<10;$i++)
 {
   $thistable=$tablename[$i];
@@ -114,26 +127,89 @@ for($i=0;$i<10;$i++)
   $row=mysqli_fetch_assoc($memo);
   if($row!=NULL)
   {
-    print "<div class='flexdiv'>";
+    print "<div class='card front'>";
     if($row["photo"]==NULL)
     {
-      print "<img class='indexissue' src='wall_all.png'>";
+      print "<img class='card-img-top' src='wall_all.png'>";
     }
     if($row["photo"]!=NULL)
     {
-      print "<img class='indexissue' src='".$thisurl."/".$row["photo"]."'>";
+      print "<img class='card-img-top' src='".$thisurl."/".$row["photo"]."'>";
     }
+    print "<div class='card-body'>";
     print "<div><a href='".$row["link"]."'><h6 class='kanit'>".$row["Topic"]."</a> ใน <a href='".$thisurl.".php'>  ".$thisurl."</a> <i class='fas fa-heart'></i> ".$row["likeno"]."</h6>";
     print "<p>".$row["Infoadd"]."</p>"; 
-    print "</div></div>";
-    print "<hr>";
+    print "</div></div></div>";
+    
   }
  
 }
-print "<p>กดถูกใจให้กับบทความที่คุณชอบในหน้า Catagory เพื่อให้บทความที่มียอดไลค์สูงสุดในแต่ละหมวดมาขึ้นที่ On Trending </p>" ;
+print "</div>";
+
 
 ?>
-</div></div> <!--for card and card-body -->
+
+ <h4 class="kanit"> News </h4>
+   <div class='flex2'>
+   
+   <div>
+    <div class="card front">
+      <img class='card-img-top' src='wall_all.png'>
+    <div class="card-body"> 
+   <h6 class="kanit">เปิดทดลองเว็บไซต์แบบเบต้า <span class="badge badge-success">New</span></h6>
+    <p>มาร่วมเป็นหนึ่งในผู้ร่วมก่อตั้ง Thailand Blog Hub ไปด้วยกัน เพียงนำบล็อกของทุกคนมาลิงค์กันที่นี่ <a href="blog/issue1.html">อ่านต่อ</a></p>
+   </div>
+   
+   </div></div> <!--for card and card body -->
+  </div> <!--for flex 2-->
+
+   <br>
+   
+      <h4 class="kanit"> On Following </h4>
+     <div class="flex2"> 
+       <?php
+      if($_SESSION==NULL)
+      {
+        print "กรุณาลงชื่อเข้าใช้เพื่อใช้งานส่วนนี้";
+      }
+      if($_SESSION!=NULL)
+      {
+        $followtablename=$user."_following";
+        $sql="SELECT * FROM $followtablename ";
+        $memo6=mysqli_query($conn,$sql);
+        while($row5=mysqli_fetch_assoc($memo6))
+        {
+          $auther=$row5["followingname"];
+          for($l=0;$l<10;$l++)
+          {
+            $thistable3=$tablename[$l];
+            $thisurl2=$urlname[$l];
+            $sql="SELECT * FROM $thistable3 WHERE Usrname='$auther'ORDER BY ID DESC";
+            $memo5=mysqli_query($conn,$sql);
+            $row6=mysqli_fetch_assoc($memo5);
+            if($row6!=NULL)
+            {
+              print "<div class='card front'>";
+              if($row6["photo"]==NULL)
+              {
+                print "<img class='card-img-top' src='wall_all.png'>";
+              }
+              if($row6["photo"]!=NULL)
+              {
+                print "<img class='card-img-top' src='".$thisurl2."/".$row6["photo"]."'>";
+              }
+              print "<div class='card-body'>";
+             print "<a href='".$row6["link"]."'><h6 class='kanit'>".$row6["Topic"]."</a> โดย ".$auther."ใน <a href='".$thisurl2.".php'>  ".$thisurl2."</a> <i class='fas fa-heart'></i> ".$row6["likeno"]."</h6>";
+            print "<p>".$row["Infoadd"]."</p>"; 
+            print "</div></div>";
+        
+            }
+          }
+        }
+      }
+      ?>
+</div>
+
 </div> <!-- for col div -->
 <div class="col-sm-4">
   <div class="card"><div class="card-body">
@@ -215,67 +291,22 @@ else{
 ?>
 
 </div></div> <!--for card and card body div -->
+
+<h4>ติดตามเราบนเฟสบุ๊ค</h4>
+     <div id="fb-root"></div> <script>(function(d, s, id) {   var js, fjs = d.getElementsByTagName(s)[0];   if (d.getElementById(id)) return;   js = d.createElement(s); js.id = id;   js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.12&appId=389712018153235&autoLogAppEvents=1';   fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script><div class="fb-page" data-href="https://www.facebook.com/thailandbloghub/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/thailandbloghub/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/thailandbloghub/">Thailand Blog Hub</a></blockquote></div>
+
 </div><!--for col sm4 -->
 </div> <!-- for row div -->
 <br>
-<div class="row">
-  <div class="col">
-    <div class="card"><div class="card-body">
-      <h4 class="kanit"> On Following </h4>
-      <?php
-      if($_SESSION==NULL)
-      {
-        print "กรุณาลงชื่อเข้าใช้เพื่อใช้งานส่วนนี้";
-      }
-      if($_SESSION!=NULL)
-      {
-        $sql="SELECT * FROM $followtablename ";
-        $memo6=mysqli_query($conn,$sql);
-        while($row5=mysqli_fetch_assoc($memo6))
-        {
-          $auther=$row5["followingname"];
-          for($l=0;$l<10;$l++)
-          {
-            $thistable3=$tablename[$l];
-            $thisurl2=$urlname[$l];
-            $sql="SELECT * FROM $thistable3 WHERE Usrname='$auther'ORDER BY ID DESC";
-            $memo5=mysqli_query($conn,$sql);
-            $row6=mysqli_fetch_assoc($memo5);
-            if($row6!=NULL)
-            {
-              print "<div class='flexdiv'>";
-              if($row6["photo"]==NULL)
-              {
-                print "<img class='indexissue' src='wall_all.png'>";
-              }
-              if($row6["photo"]!=NULL)
-              {
-                print "<img class='indexissue' src='".$thisurl2."/".$row6["photo"]."'>";
-              }
-             print "<div><a href='".$row6["link"]."'><h6 class='kanit'>".$row6["Topic"]."</a> โดย ".$auther."ใน <a href='".$thisurl2.".php'>  ".$thisurl2."</a> <i class='fas fa-heart'></i> ".$row6["likeno"]."</h6>";
-            print "<p>".$row["Infoadd"]."</p>"; 
-            print "</div></div>";
-            print "<hr>";
-            }
-          }
-        }
-      }
-      ?>
-</div></div> <!-- for card and card body -->
-</div> <!-- for col -->
-<div class="col-sm-4">
-  <!--<div class="card"><div class="card-body">-->
-<h4>ติดตามเราบนเฟสบุ๊ค</h4>
-     <div id="fb-root"></div> <script>(function(d, s, id) {   var js, fjs = d.getElementsByTagName(s)[0];   if (d.getElementById(id)) return;   js = d.createElement(s); js.id = id;   js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.12&appId=389712018153235&autoLogAppEvents=1';   fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script><div class="fb-page" data-href="https://www.facebook.com/thailandbloghub/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/thailandbloghub/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/thailandbloghub/">Thailand Blog Hub</a></blockquote></div>
-   <!-- </div></div>--> <!--for card and card body-->
-</div> <!-- for col sm-4 -->
-</div><!--for row class 2 -->
+
 
 </div> <!--for container div -->
+
 <div class="addbutton fixed-bottom">  <a href="addnew.php"><button class="btn btn-danger pencil"><i class="fas fa-plus"></i></button></a> </div> 
-<br><br>
+<br><br> 
+
 <div class="footer  navbar-dark bg-dark ">
-  <div class="container">
+ <div class="container">
   <div class="row">
     <div class="col">
       <div class="footercontent">
@@ -284,18 +315,22 @@ else{
       <div style="color:white;">
     <h6 class="kanit">ไทยแลนด์บล็อกฮับ</h6>
     <p>Copyright 2018 Thailand Blog Hub</p>
-    <a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a>
-    <a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a>
+    <li><a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a></li>
+    <li><a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a></li>
+    
+    <div class="btn-group" role="group" aria-label="Basic example">
+  <a href="https://www.facebook.com/thailandbloghub"><button type="button" class="btn btn-secondary"><i class="fab fa-facebook-square"></i></button></a>
+  <a href="mailto:admin@thailandbloghub.com"><button type="button" class="btn btn-secondary"><i class="fas fa-envelope"></i></button>
+</div>
      </div>
      </div><!--for flex div -->
      </div>
     </div><!--for col div-->
-    <div class="col" >
- 
-    </div><!--for col div-->
+   
    
      </div><!--for row div-->
-     </div> <!--for container -->
+</div> <!--for container -->     
 </div><!-- for nav bottom -->
+
 </body>
 </html>

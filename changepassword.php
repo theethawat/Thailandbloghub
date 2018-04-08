@@ -1,7 +1,7 @@
 <?php
 session_start();
 $user=$_SESSION["user"];
-$conn=mysqli_connect("localhost","root","","thailandbloghub");
+$conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
 $oldpass=$_POST["oldpass"];
 $newpass=$_POST["newpass"];
 $sql="SELECT * FROM member WHERE Usrname='$user' ";

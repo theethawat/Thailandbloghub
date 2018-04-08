@@ -6,7 +6,7 @@
  $link=$_POST["link"];
 
 
- $conn=mysqli_connect("localhost","root","","thailandbloghub");
+ $conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
  $sql="UPDATE $catagory SET Link='$link' WHERE id='$id' ";
  
  if ($conn->query($sql) === TRUE) {

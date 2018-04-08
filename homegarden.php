@@ -13,11 +13,11 @@
 <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"> 
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <link rel="stylesheet" href="stylehome.css" type="text/css" >
-</head>
+<!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104473772-2"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());    gtag('config', 'UA-104473772-2'); </script></head>
 <body>
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark  navgreen blue kanit">
-<img src="logo_tbh.png" width="30" height="30" alt="">
-  <a class="navbar-brand" href="index.php">ThailandBlogHub</a>
+<span><img src="logo_tbh.png" width="30" height="30" alt="">
+  <a class="navbar-brand" href="index.php">ThailandBlogHub</a></span>
   <?php
   session_start();
   
@@ -72,9 +72,9 @@
   <div class="col">
   <!-- PHP Code zone -->
   <?php
-    if($_SESSION!=NULL)   {       $usertablename=$user."_Like";   }
+    if($_SESSION!=NULL)   {       $usertablename=$user."_like";   }
   
-  $conn=mysqli_connect("localhost","root","","thailandbloghub");
+  $conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
   $sql="SELECT * FROM 00homegarden ORDER BY ID DESC ";
   $memo=mysqli_query($conn,$sql);
   $numrow=mysqli_num_rows($memo);
@@ -93,23 +93,23 @@
          if($row!=NULL)
          {
              //Making Card and Operate it to show
-            print "<div class='card maincard'><div class='card-body' >";
+            print "<div class='card maincard'>";
             print "<div class='blogcontent'>";
             if($row["photo"]==NULL)
             {
                 //specific part
-                print "<div class='photodiv'>";
+               
                 print "<img class='card-img-top' src='wall_all.png'>";
-                print "</div>";
+                
             }
             else
             {
                 //regular part
-                print "<div class='photodiv'>";
+               
                 print "<img class='card-img-top' src='homegarden/".$row["photo"]."'>";
-                print "</div>";
+                
             }
-            print "<div class='bloginfo'>";
+              print "<div class='card-body'><div class='bloginfo'>";
             $authername=$row["Usrname"];
             print "<form class='kanit' action='memberwatch.php' method='post'><button type='submit' name='auther' value='$authername'class='btn btn-light aubut'><i class='fas fa-user'></i> ".$authername."</button> / ".$row["Sitename"]."</form>";
                     print "<h4 class='kanit'>".$row["Topic"]."</h4>";
@@ -166,5 +166,5 @@
   <div class="col-6 col-md-4">      <div id="fb-root"></div> <script>(function(d, s, id) {   var js, fjs = d.getElementsByTagName(s)[0];   if (d.getElementById(id)) return;   js = d.createElement(s); js.id = id;   js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.12&appId=389712018153235&autoLogAppEvents=1';   fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script><div class="fb-page" data-href="https://www.facebook.com/thailandbloghub/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/thailandbloghub/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/thailandbloghub/">Thailand Blog Hub</a></blockquote></div>
    </div> --> <!-- for col-6 col-md-4 -->     </div> <!-- for container --> </div> <!-- div for row -->
 <div class="addbutton fixed-bottom">  <a href="addnew.php"><button class="btn btn-danger pencil"><i class="fas fa-plus"></i></button></a> </div> </div> <!-- for container div -->
-<br><br><br><br><br><br> <div class="footer  navbar-dark bg-dark ">   <div class="container">   <div class="row">     <div class="col">       <div class="footercontent">     <div class="flexdiv">       <img src="logo_tbh_bg.png" class="footerlogo">       <div style="color:white;">     <h6 class="kanit">ไทยแลนด์บล็อกฮับ</h6>     <p>Copyright 2018 Thailand Blog Hub</p>     <a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a>     <a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a>      </div>      </div><!--for flex div -->      </div>     </div><!--for col div-->     <div class="col" >       </div><!--for col div-->          </div><!--for row div-->      </div> <!--for container --> </div><!-- for nav bottom --> </body></html>
+<br><br><br><br><br><br> <div class="footer  navbar-dark bg-dark ">   <div class="container">   <div class="row">     <div class="col">       <div class="footercontent">     <div class="flexdiv">       <img src="logo_tbh_bg.png" class="footerlogo">       <div style="color:white;">     <h6 class="kanit">ไทยแลนด์บล็อกฮับ</h6>     <p>Copyright 2018 Thailand Blog Hub</p>     <a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a><br>     <a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a>      </div>      </div><!--for flex div -->      </div>     </div><!--for col div-->            </div><!--for row div-->      </div> <!--for container --> </div><!-- for nav bottom --> </body></html>
 </html>

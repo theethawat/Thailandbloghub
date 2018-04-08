@@ -4,7 +4,7 @@ $password=$_POST["password"];
 
 session_start();
 
-$conn=mysqli_connect("localhost","root","","thailandbloghub");
+$conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
 $sql="SELECT * FROM member WHERE Email='$email' ";
 $memo=mysqli_query($conn,$sql);
 

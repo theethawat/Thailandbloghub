@@ -18,7 +18,7 @@
     $filename=$_FILES["photo"]["name"];
 
 
- $conn=mysqli_connect("localhost","root","","thailandbloghub");
+ $conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
  $sql="UPDATE $catagory SET Photo='$filename' WHERE id='$id' ";
  
  if ($conn->query($sql) === TRUE) {

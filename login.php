@@ -13,11 +13,21 @@
 <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"> 
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <link rel="stylesheet" href="stylehome.css" type="text/css" >
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104473772-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104473772-2');
+</script>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark  navgreen blue kanit">
-<img src="logo_tbh.png" width="30" height="30" alt="">
-  <a class="navbar-brand" href="index.php">ThailandBlogHub</a>
+<span><img src="logo_tbh.png" width="30" height="30" alt="">
+  <a class="navbar-brand" href="index.php">ThailandBlogHub</a></span>
   
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav litsize">
@@ -67,5 +77,5 @@
 </div> <!-- for container div -->
 
 
-<br><br><br><br><br><br> <div class="footer  navbar-dark bg-dark ">   <div class="container">   <div class="row">     <div class="col">       <div class="footercontent">     <div class="flexdiv">       <img src="logo_tbh_bg.png" class="footerlogo">       <div style="color:white;">     <h6 class="kanit">ไทยแลนด์บล็อกฮับ</h6>     <p>Copyright 2018 Thailand Blog Hub</p>     <a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a>     <a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a>      </div>      </div><!--for flex div -->      </div>     </div><!--for col div-->     <div class="col" >       </div><!--for col div-->          </div><!--for row div-->      </div> <!--for container --> </div><!-- for nav bottom --> </body></html>
+<br><br><br><br><br><br> <div class="footer  navbar-dark bg-dark ">   <div class="container">   <div class="row">     <div class="col">       <div class="footercontent">     <div class="flexdiv">       <img src="logo_tbh_bg.png" class="footerlogo">       <div style="color:white;">     <h6 class="kanit">ไทยแลนด์บล็อกฮับ</h6>     <p>Copyright 2018 Thailand Blog Hub</p>     <a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a><br>     <a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a>      </div>      </div><!--for flex div -->      </div>     </div><!--for col div-->            </div><!--for row div-->      </div> <!--for container --> </div><!-- for nav bottom --> </body></html>
 </html>

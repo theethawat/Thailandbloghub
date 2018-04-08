@@ -13,11 +13,11 @@
 <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"> 
 <link rel="stylesheet" href="stylehome.css" type="text/css" >
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-</head>
+<!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104473772-2"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());    gtag('config', 'UA-104473772-2'); </script></head>
 <body>
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark  navgreen blue kanit">
-<img src="logo_tbh.png" width="30" height="30" alt="">
-  <a class="navbar-brand" href="index.php">ThailandBlogHub</a>
+<span><img src="logo_tbh.png" width="30" height="30" alt="">
+  <a class="navbar-brand" href="index.php">ThailandBlogHub</a></span>
   <?php
   session_start();
   
@@ -72,7 +72,7 @@
 <div class="card">
 <?php
 $auther=$_POST["auther"];
- $conn = mysqli_connect("localhost","root","","thailandbloghub");
+ $conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
  $sql="SELECT * FROM member WHERE Usrname = '$auther' ";
 $memo = mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($memo);
@@ -132,7 +132,7 @@ if($row==NULL)
 <div class="card"><div class="card-body">
 <h4 class="kanit">Entry</h4>
 <?php
-$conn=mysqli_connect("localhost","root","","thailandbloghub");
+$conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
 $tablename=array("00science","00it","00health","00travel","00business","00education","00entertainment","00homegarden","00reaction","00reporter");
 $urlname=array("science","it","health","travel","business","education","entertainment","homegarden","reaction","reporter");
 for($i=0;$i<10;$i++)
@@ -171,5 +171,5 @@ for($i=0;$i<10;$i++)
 
 
 
-<br><br><br><br><br><br> <div class="footer  navbar-dark bg-dark ">   <div class="container">   <div class="row">     <div class="col">       <div class="footercontent">     <div class="flexdiv">       <img src="logo_tbh_bg.png" class="footerlogo">       <div style="color:white;">     <h6 class="kanit">ไทยแลนด์บล็อกฮับ</h6>     <p>Copyright 2018 Thailand Blog Hub</p>     <a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a>     <a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a>      </div>      </div><!--for flex div -->      </div>     </div><!--for col div-->     <div class="col" >       </div><!--for col div-->          </div><!--for row div-->      </div> <!--for container --> </div><!-- for nav bottom --> </body></html>
+<br><br><br><br><br><br> <div class="footer  navbar-dark bg-dark ">   <div class="container">   <div class="row">     <div class="col">       <div class="footercontent">     <div class="flexdiv">       <img src="logo_tbh_bg.png" class="footerlogo">       <div style="color:white;">     <h6 class="kanit">ไทยแลนด์บล็อกฮับ</h6>     <p>Copyright 2018 Thailand Blog Hub</p>     <a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a><br>     <a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a>      </div>      </div><!--for flex div -->      </div>     </div><!--for col div-->            </div><!--for row div-->      </div> <!--for container --> </div><!-- for nav bottom --> </body></html>
 </html>

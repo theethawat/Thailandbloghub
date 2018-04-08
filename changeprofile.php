@@ -1,7 +1,7 @@
 <?php
 session_start();
 $user=$_SESSION["user"];
- $conn=mysqli_connect("localhost","root","","thailandbloghub");
+ $conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
 
  move_uploaded_file($_FILES["profilephoto"]["tmp_name"],"Profile/".$_FILES["profilephoto"]["name"]);
     $filename=$_FILES["profilephoto"]["name"];

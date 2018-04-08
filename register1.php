@@ -13,11 +13,21 @@
 <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"> 
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <link rel="stylesheet" href="stylehome.css" type="text/css" >
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104473772-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104473772-2');
+</script>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark  navgreen blue kanit">
-<img src="logo_tbh.png" width="30" height="30" alt="">
-  <a class="navbar-brand" href="index.php">ThailandBlogHub</a>
+<span><img src="logo_tbh.png" width="30" height="30" alt="">
+  <a class="navbar-brand" href="index.php">ThailandBlogHub</a></span>
   <?php
   
   session_start();
@@ -57,9 +67,9 @@
   <div class="card"><div class="card-body">
   <h5>ตรวจสอบชื่อ Username </h5>
   <p>เนื่องจากเรากำหนดให่้ Username จะต้องไม่ซ้ำกับใคร ก่อนจะสมัครมาตรวจสอบกันก่อนว่า Username ของท่านใช้ได้หรือไม่ Username จะเป็นชื่อที่โชว์อยู่ในโพสต์ของคุณ
-  <br> Username เป็นภาษาอังกฤษเท่านั้น(สามารถเป็นตัวเลขหรืออักขระอื่นๆได้) </p>
+  <br> Username เป็นภาษาอังกฤษ<b>พิมพ์เล็ก</b> เท่านั้น(สามารถเป็นตัวเลขและอักขระอื่นๆได้) </p>
   <form action="register1.php" method="post">
-  <input type="text" class="form-control" name="usernamecheck" placeholder="Enter Username"><br>
+  <input type="text" class="form-control" pattern="[a-z0-9._%+-]{1,}" title="โปรดใส่ตัวอักษรภาษาอังกฤษพิมพ์เล็กหรือเลข สัญลักษณ์อนุญาติเฉพาะ . _ % + -"name="usernamecheck" placeholder="Enter Username"><br>
   <button class="btn btn-primary kanit" type="submit"><i class="fas fa-search"></i> Search </button>
   </from>
 
@@ -68,8 +78,8 @@
 if($_POST!=NULL)
 {
     $username=$_POST["usernamecheck"];
-    $conn=mysqli_connect("localhost","root","","thailandbloghub");
-    $sql="SELECT Usrname FROM Member";
+    $conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
+    $sql="SELECT Usrname FROM member";
     $memo=mysqli_query($conn,$sql);
     $check=0;
     while($row=mysqli_fetch_assoc($memo))
@@ -104,4 +114,4 @@ if($_POST!=NULL)
    </div>  <!-- for col-6 col-md-4 -->     </div> <!-- for container --> </div> <!-- div for row -->
 </div> <!-- for container div -->
 
-<br><br><br><br><br><br> <div class="footer  navbar-dark bg-dark ">   <div class="container">   <div class="row">     <div class="col">       <div class="footercontent">     <div class="flexdiv">       <img src="logo_tbh_bg.png" class="footerlogo">       <div style="color:white;">     <h6 class="kanit">ไทยแลนด์บล็อกฮับ</h6>     <p>Copyright 2018 Thailand Blog Hub</p>     <a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a>     <a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a>      </div>      </div><!--for flex div -->      </div>     </div><!--for col div-->     <div class="col" >       </div><!--for col div-->          </div><!--for row div-->      </div> <!--for container --> </div><!-- for nav bottom --> </body></html>
+<br><br><br><br><br><br> <div class="footer  navbar-dark bg-dark ">   <div class="container">   <div class="row">     <div class="col">       <div class="footercontent">     <div class="flexdiv">       <img src="logo_tbh_bg.png" class="footerlogo">       <div style="color:white;">     <h6 class="kanit">ไทยแลนด์บล็อกฮับ</h6>     <p>Copyright 2018 Thailand Blog Hub</p>     <a href="condition.php" class="listfooter"> ข้อกำหนดและเงื่อนไข </a><br>     <a href="policy.php" class="listfooter"> นโยบายความเป็นส่วนตัว </a>      </div>      </div><!--for flex div -->      </div>     </div><!--for col div-->            </div><!--for row div-->      </div> <!--for container --> </div><!-- for nav bottom --> </body></html>

@@ -6,7 +6,7 @@
  $topic=$_POST["topic"];
 
 
- $conn=mysqli_connect("localhost","root","","thailandbloghub");
+ $conn=mysqli_connect("localhost","puyscexc","Tttt2544","puyscexc_thailandbloghub");
  $sql="UPDATE $catagory SET Topic='$topic' WHERE id='$id' ";
  
  if ($conn->query($sql) === TRUE) {
